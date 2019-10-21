@@ -1,0 +1,22 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <span>Mid</span>
+    <span class="example-spacer"></span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="content" *ngIf="!loading">
+  <mat-card class="mat-card" *ngFor="let place of places; let i = index">
+    <mat-card-header>
+      <mat-card-title>{{ place.name }}</mat-card-title>
+      <mat-card-subtitle>{{ place.numberOfVotes }} votes</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <img [src]="place.imageUrl" alt="">
+    </mat-card-content>
+  
+    <mat-card-actions>
+      <button mat-button (click)="vote(place.id , i)">Vote</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
